@@ -42,11 +42,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.CustomViewHo
 
     @Override
     public void onBindViewHolder(final CustomViewHolder customViewHolder, final int i) {
-
-
-        customViewHolder.tvProductName.setText(eventList.get(i).getName());
-
-
+        //customViewHolder.tvProductName.setText(eventList.get(i).getName());
     }
 
     @Override
@@ -57,12 +53,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.CustomViewHo
     class CustomViewHolder extends RecyclerView.ViewHolder {
         protected TextView tvProductName;
 
-
         public CustomViewHolder(View view) {
             super(view);
-            this.tvProductName = (TextView) view.findViewById(R.id.tv_name);
-
-
+            //this.tvProductName = (TextView) view.findViewById(R.id.tv_name);
         }
     }
 

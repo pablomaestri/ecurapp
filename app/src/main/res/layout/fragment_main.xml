@@ -33,9 +33,9 @@
             <view
                 android:id="@+id/rv_events"
                 class="android.support.v7.widget.RecyclerView"
-                app:borderWidth="0dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"/>
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
