@@ -9,8 +9,14 @@
     <ImageView
         android:id="@+id/img_event_image"
         android:layout_width="match_parent"
+        android:layout_height="145dp"
+        app:srcCompat="@drawable/event2"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.25"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/event1"/>
+        android:layout_weight="0.04"
+        android:text="TextView"/>
+
 </LinearLayout>

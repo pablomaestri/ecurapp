@@ -1,8 +1,6 @@
 package com.psm.ecurapp.android.fragments;
 
 import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.psm.ecurapp.R;
 import com.psm.ecurapp.android.adapters.EventAdapter;
@@ -23,8 +20,6 @@ import com.psm.ecurapp.modules.Event;
 import java.util.ArrayList;
 
 public class MainFragment extends Fragment {
-
-
     private Activity activity;
     private RecyclerView rvEvents;
     private LinearLayoutManager layoutManager;
@@ -46,13 +41,10 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_main, container, false);
         activity = getActivity();
         page = 1;
@@ -69,7 +61,6 @@ public class MainFragment extends Fragment {
                 super.onScrollStateChanged(recyclerView, newState);
 
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-
                     if (layoutManager.findLastCompletelyVisibleItemPosition()== (GralConstants.TOTAL_ITEMS_PAGE * page - 1)) {
                         page++;
                         getEvents();
@@ -80,13 +71,11 @@ public class MainFragment extends Fragment {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-
             }
         });
 
         progressBar = (ProgressBar) layout.findViewById(R.id.pg_events);
         progressBar.setVisibility(View.VISIBLE);
-
 
         swipeEventsContainer = (SwipeRefreshLayout) layout.findViewById(R.id.sw_events);
         swipeEventsContainer.setVisibility(View.GONE);
@@ -101,7 +90,6 @@ public class MainFragment extends Fragment {
         });
 
         getEvents();
-
 
         return layout;
     }

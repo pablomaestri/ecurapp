@@ -17,16 +17,16 @@
         android:layout_centerInParent="true"/>
 
     <LinearLayout
+        android:id="@+id/ll_events"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/ll_events">
+        android:orientation="horizontal">
 
 
         <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/sw_events"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sw_events"
             android:visibility="visible"
             app:borderWidth="0dp">
 
