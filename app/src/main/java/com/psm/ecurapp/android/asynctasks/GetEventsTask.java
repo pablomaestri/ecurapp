@@ -9,16 +9,15 @@ import com.psm.ecurapp.android.adapters.EventAdapter;
 import com.psm.ecurapp.modules.Event;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class GetEventsTask extends ParentAsyncTask<Void, Void, Boolean> {
-
     private View mProgressView;
     private RecyclerView rvEvents;
     private int page;
     private SwipeRefreshLayout swipeEventsContainer;
     private List<Event> events;
-
 
     @Override
     protected void onPreExecute() {
@@ -45,14 +44,13 @@ public class GetEventsTask extends ParentAsyncTask<Void, Void, Boolean> {
             events = new ArrayList<>();
             for (int i = 0; i<10; i++)  {
                 Event event = new Event();
-                event.setName("Evento ejemplo "+i);
+                event.setDate(new Date(2017, 01, 23));
                 events.add(event);
             }
             return true;
         }
 
         return false;
-
     }
 
     @Override
@@ -60,7 +58,7 @@ public class GetEventsTask extends ParentAsyncTask<Void, Void, Boolean> {
         super.onPostExecute(success);
         if (hasInternet) {
             if (success) {
-                EventAdapter adapter = (EventAdapter)  rvEvents.getAdapter();
+                EventAdapter adapter = (EventAdapter) rvEvents.getAdapter();
                 adapter.addListEvent(events);
             }
             else {

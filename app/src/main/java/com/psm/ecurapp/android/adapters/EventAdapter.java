@@ -5,13 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.psm.ecurapp.R;
 import com.psm.ecurapp.modules.Event;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
-
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.CustomViewHolder> {
     private List<Event> eventList;
@@ -42,20 +43,26 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.CustomViewHo
 
     @Override
     public void onBindViewHolder(final CustomViewHolder customViewHolder, final int i) {
-        //customViewHolder.tvProductName.setText(eventList.get(i).getName());
+        Event item = eventList.get(i);
+        customViewHolder.txtMonth.setText(new SimpleDateFormat("MMMM").format(item.getDate()));
+        customViewHolder.txtDay.setText(new SimpleDateFormat("dd").format(item.getDate()));
     }
 
     @Override
     public int getItemCount() {
-        return (null != eventList ? eventList.size() : 0);
+        return (eventList != null ? eventList.size() : 0);
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
-        protected TextView tvProductName;
+        protected ImageView imgImage;
+        protected TextView txtMonth;
+        protected TextView txtDay;
 
         public CustomViewHolder(View view) {
             super(view);
-            //this.tvProductName = (TextView) view.findViewById(R.id.tv_name);
+            this.imgImage = (ImageView) view.findViewById(R.id.img_event_image);
+            this.txtMonth = (TextView) view.findViewById(R.id.txt_event_month);
+            this.txtDay = (TextView) view.findViewById(R.id.txt_event_day);
         }
     }
 
@@ -63,5 +70,4 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.CustomViewHo
         eventList.clear();
         notifyDataSetChanged();
     }
-
 }
